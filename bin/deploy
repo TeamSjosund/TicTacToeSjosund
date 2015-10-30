@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./gradlew jar
+cp build/libs/TicTacToeSjosund.jar /tmp
+java -jar /tmp/TicTacToeSjosund.jar
