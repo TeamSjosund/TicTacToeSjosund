@@ -1,5 +1,10 @@
 #!/bin/bash
 
-./gradlew jar
-cp build/libs/TicTacToeSjosund.jar /tmp
-java -jar /tmp/TicTacToeSjosund.jar
+bin/clean
+bin/package
+
+test -f /tmp/${APP} && rm -r /tmp/${APP}
+cp -r build/install/${APP} /tmp
+
+
+/tmp/${APP}/bin/${APP}
