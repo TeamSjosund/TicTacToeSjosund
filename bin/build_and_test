@@ -3,4 +3,6 @@
 ./bin/clean
 ./bin/compile
 ./bin/compile_tests
+./gradlew pmdMain
+./gradlew pmdTest
 ./bin/unit_test
