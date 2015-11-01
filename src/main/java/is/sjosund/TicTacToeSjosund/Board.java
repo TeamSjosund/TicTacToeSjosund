@@ -30,12 +30,31 @@ public class Board {
     	return board;
     }
 	
-	private boolean checkBoard(int x, int y) {
+	public static boolean checkBoard(int x, int y, char[][] board) {
 		
-		if(BOARD[x][y] != '-') {
+		if(x >= board.length || x < 0 || y >= board.length || y < 0 ) {
+			throw new RuntimeException("Not a valid field");
+		}
+		
+		if(board[x][y] != '-') {
 			return false;
 		}
 		
 		return true;
 	}
+	
+	public static char[][] makeMove (int x, int y, char[][] board, char playerChar)
+    {
+    	if (x >= board.length || x < 0 || y >= board.length || y < 0)
+    	{
+    		throw new RuntimeException("Move out of bounds");
+    	}
+    	if (board[x][y] != '-')
+    	{
+    		throw new RuntimeException("Move already made");
+    	}
+    	board[x][y] = playerChar;
+    	return board;
+    }
+	
 }

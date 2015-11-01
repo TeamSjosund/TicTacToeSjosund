@@ -12,18 +12,71 @@ public class BoardTest {
 	@Test
 	public void testMakeBoard() {
 		char[][] board = { {'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
-		assertEquals(board, TicTacToe.makeBoard(3));
+		assertEquals(board, Board.makeBoard(3));
 	}
 	
 	@Test
 	public void testMakeBoardTooSmall() {
 		try {
-			TicTacToe.makeBoard(-1);
+			Board.makeBoard(-1);
 		}
 		catch(Exception ex)
 		{
 			assertEquals("Size too small", ex.getMessage());
 		}
 	}
+	
+	@Test
+	public void testInvalidFieldCheckBoard() {
+		char[][] board = { {'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		try {
+			Board.checkBoard(-1, 0, board);
+		}
+		catch(Exception ex) {
+			assertEquals("Not a valid field", ex.getMessage());
+		}
+	}
+	
+	@Test
+	public void testLegalInputCheckBoard() {
+		char[][] board = { {'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		assertEquals(true, Board.checkBoard(0, 0, board));
+	}
+	
+	@Test
+	public void testFieldAlreadyTakenCheckBoard() {
+		char[][] board = { {'x', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		assertEquals(false, Board.checkBoard(0, 0, board));
+	}
+	
+	@Test
+	public void testMakeLegalMove() {
+		char[][] board = { {'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		char[][] board2 = { {'x', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		assertEquals(board2, Board.makeMove(0, 0, board, 'x'));
+	}
 
+	@Test
+	public void testMakeOutOfBoardMove() {
+		char[][] board = { {'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		try {
+			Board.makeMove(0, 3, board, 'x');
+		}
+		catch(Exception ex)
+		{
+			assertEquals("Move out of bounds", ex.getMessage());
+		}
+	}
+
+	@Test
+	public void testMoveAlreadyPlayed() {
+		char[][] board = { {'o', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		try {
+			Board.makeMove(0, 0, board, 'x');
+		}
+		catch(Exception ex)
+		{
+			assertEquals("Move already made", ex.getMessage());
+		}
+	}
 }
