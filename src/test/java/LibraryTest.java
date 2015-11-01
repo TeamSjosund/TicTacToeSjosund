@@ -13,3 +13,12 @@ public class LibraryTest {
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
 }
+
+@Test
+public class AI
+{
+    @Test public void makeMove()
+    {
+        
+    }
+}
