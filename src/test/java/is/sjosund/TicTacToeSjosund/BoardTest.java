@@ -14,5 +14,16 @@ public class BoardTest {
 		char[][] board = { {'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'} };
 		assertEquals(board, TicTacToe.makeBoard(3));
 	}
+	
+	@Test
+	public void testMakeBoardTooSmall() {
+		try {
+			TicTacToe.makeBoard(-1);
+		}
+		catch(Exception ex)
+		{
+			assertEquals("Size too small", ex.getMessage());
+		}
+	}
 
 }

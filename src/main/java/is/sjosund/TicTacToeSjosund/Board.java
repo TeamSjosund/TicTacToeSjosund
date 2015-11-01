@@ -13,7 +13,7 @@ public class Board {
 	}
 	
     public static char[][] makeBoard (int size) {
-    	if (size <= 0)
+    	if (size <= 2)
     	{
     		throw new RuntimeException("Size too small");
     	}
