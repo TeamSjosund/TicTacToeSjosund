@@ -79,4 +79,34 @@ public class BoardTest {
 			assertEquals("Move already made", ex.getMessage());
 		}
 	}
+	
+	@Test
+	public void testHorizontalWinner() {
+		char[][] board = { {'o', 'o', 'o'}, {'-', '-', '-'}, {'-', '-', '-'} };
+		assertEquals('o', Board.winner(board));
+	}
+	
+	@Test
+	public void testVerticalWinner() {
+		char[][] board = { {'x', '-', '-'}, {'x', '-', '-'}, {'x', '-', '-'} };
+		assertEquals('x', Board.winner(board));
+	}
+	
+	@Test
+	public void testDiagonalWinner() {
+		char[][] board = { {'x', '-', '-'}, {'-', 'x', '-'}, {'-', '-', 'x'} };
+		assertEquals('x', Board.winner(board));
+	}
+	
+	@Test
+	public void testDiagonalWinner2() {
+		char[][] board = { {'-', '-', 'x'}, {'-', 'x', '-'}, {'x', '-', '-'} };
+		assertEquals('x', Board.winner(board));
+	}
+	
+	@Test
+	public void testIfTie() {
+		char[][] board = { {'o', 'o', 'x'}, {'x', 'x', 'o'}, {'o', 'x', 'x'} };
+		assertEquals(true, Board.checkIfTie(board));
+	}
 }

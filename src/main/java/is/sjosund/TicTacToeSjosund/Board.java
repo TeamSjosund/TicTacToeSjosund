@@ -6,9 +6,11 @@ public class Board {
 	System.out.println("Hello world");
     }
 	
+	static int SIZE = 3;
 	char[][] BOARD;
 	
 	Board(int size) {
+		SIZE = size;
 		BOARD = makeBoard(size);	
 	}
 	
@@ -57,4 +59,60 @@ public class Board {
     	return board;
     }
 	
+	public static char winner(char[][] board) {
+		for(int i = 0; i < SIZE; i++) {
+			char currentChar = board[i][0];
+			boolean winner = true;
+			for(int j = 1; j < SIZE; j++) {
+				if(board[i][j] != currentChar) {
+					winner = false;
+				}
+			}
+			if (winner == true) {
+				return currentChar;
+			}
+		}
+		
+		for(int i = 0; i < SIZE; i++) {
+			char currentChar = board[0][i];
+			boolean winner = true;
+			for(int j = 1; j < SIZE; j++) {
+				if(board[j][i] != currentChar) {
+					winner = false;
+				}
+			}
+			if (winner == true) {
+				return currentChar;
+			}
+		}
+		
+		char currentChar = board[0][0];
+		boolean winner = true;
+		for(int i = 1; i < SIZE; i++) {
+			if(board[i][i] != currentChar) {
+				winner = false;
+			}
+		}
+		if(winner == true) {
+			return currentChar;
+		}
+		
+		currentChar = board[0][2];
+		if(board[1][1] == currentChar && board[2][0] == currentChar) {
+			return currentChar;
+		}
+		return '-';
+	}
+	
+	public static boolean checkIfTie(char[][] board) {
+		for(int i = 0; i < SIZE; i++) {
+			for(int j = 0; j < SIZE; j++) {
+				if(!checkBoard(i, j, board) && winner(board) == '-') {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
+
