@@ -7,7 +7,7 @@ public class Board {
     }
 	
 	static int SIZE = 3;
-	char[][] BOARD;
+	static char[][] BOARD;
 	
 	Board(int size) {
 		SIZE = size;
@@ -39,6 +39,7 @@ public class Board {
 		}
 		
 		if(board[x][y] != '-') {
+			System.out.println("Field occupied! Try again: ");
 			return false;
 		}
 		
@@ -104,15 +105,34 @@ public class Board {
 		return '-';
 	}
 	
-	public static boolean checkIfTie(char[][] board) {
+	public static boolean checkIfFull(char[][] board) {
 		for(int i = 0; i < SIZE; i++) {
 			for(int j = 0; j < SIZE; j++) {
-				if(!checkBoard(i, j, board) && winner(board) == '-') {
-					return true;
+				if(board[i][j] == '-') {
+					return false;
 				}
 			}
 		}
-		return false;
+		return true;
 	}
+
+	public static void printBoard ()
+    {
+    	System.out.print(" ");
+    	for (int i = 0; i < BOARD.length; i++)
+    	{
+    		System.out.print(i + " ");
+    	}
+    	System.out.println();
+    	for (int i = 0; i < BOARD.length; i++)
+    	{
+    		System.out.print(i + " ");
+    		for (int j = 0; j < BOARD.length; j++)
+    		{
+    			System.out.print(BOARD[i][j] + " ");
+    		}
+    		System.out.println();
+    	}
+    }
 }
 

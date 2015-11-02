@@ -2,55 +2,40 @@ package is.sjosund.TicTacToeSjosund;
 
 public class TicTacToe {
     public static void main(String[] args) {
-	System.out.println("Hello world");
+	Board board = new Board(3);
+    Player player1 = new Player('x');
+    Player player2 = new Player('o');
+    char winner = '-';
+    boolean player1Turn = true;
+    while (!board.checkIfFull(board.BOARD) && winner == '-') {
+        board.printBoard();
+        if (player1Turn == true)
+        {
+        	int p1x;
+        	int p1y;
+        	do {
+	            p1x = player1.humanXMove();
+	            p1y = player1.humanYMove();
+            } while (!board.checkBoard(p1x, p1y, board.BOARD));
+            board.makeMove(p1x, p1y, board.BOARD, player1.playerChar());
+            player1Turn = false;
+        }
+        else
+        {
+        	int p2x;
+        	int p2y;
+        	do {
+	            p2x = player2.humanXMove();
+	            p2y = player2.humanYMove();
+	        } while (!board.checkBoard(p2x, p2y, board.BOARD));
+            board.makeMove(p2x, p2y, board.BOARD, player2.playerChar());
+            player1Turn = true;
+        }
+        winner = board.winner(board.BOARD);
     }
+    board.printBoard();
+    System.out.println("Winner: " + winner);
+}
 
-    public static char[][] makeBoard (int size) {
-    	if (size <= 0)
-    	{
-    		throw new RuntimeException("Size too small");
-    	}
-    	char[][] board = new char[size][size];
-    	for (int i = 0; i < size; i++)
-    	{
-    		for (int j = 0; j < size; j++)
-    		{
-    			board[i][j] = '-';
-    		}
-    	}
-    	return board;
-    }
-
-    public static void printBoard (char[][] board)
-    {
-    	System.out.print(" ");
-    	for (int i = 0; i < board.length; i++)
-    	{
-    		System.out.print(i + " ");
-    	}
-    	System.out.println();
-    	for (int i = 0; i < board.length; i++)
-    	{
-    		System.out.print(i + " ");
-    		for (int j = 0; j < board.length; j++)
-    		{
-    			System.out.print(board[i][j] + " ");
-    		}
-    		System.out.println();
-    	}
-    }
-
-    public static char[][] makeMove (int x, int y, char[][] board, char playerChar)
-    {
-    	if (x >= board.length || x < 0 || y >= board.length || y < 0)
-    	{
-    		throw new RuntimeException("Move out of bounds");
-    	}
-    	if (board[x][y] != '-')
-    	{
-    		throw new RuntimeException("Move already made");
-    	}
-    	board[x][y] = playerChar;
-    	return board;
-    }
+    
 }

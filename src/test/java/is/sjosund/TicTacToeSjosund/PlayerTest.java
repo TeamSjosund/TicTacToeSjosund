@@ -9,27 +9,24 @@ public class PlayerTest
 		org.junit.runner.JUnitCore.main("is.sjosund.TicTacToeSjosund.PlayerTest");
 	}
     
-@Test
-public void verifyGoodInput()
-{
+    @Test
+    public void verifyGoodInput()
+    {
 
-    assertTrue(Player.verifyInput(2));
-    
-}
-    
-@Test
-public void verifyBadInput()
-{
-    boolean bool = false;
-        try
-        {
-            Player.verifyInput(-1);
-        }
-        catch(Exception ex)
-        {
-            bool = true;
-        }
-         assertTrue(bool);
-    
-}
+        assertTrue(Player.verifyInput(2));
+        
+    }
+        
+    @Test
+    public void verifyBadInput()
+    {
+        assertFalse(Player.verifyInput(3));   
+    }
+
+    @Test
+    public void verifyBadInput2()
+    {
+        assertFalse(Player.verifyInput(-1));   
+    }
+
 }

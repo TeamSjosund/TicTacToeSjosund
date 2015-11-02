@@ -105,8 +105,8 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void testIfTie() {
+	public void testIfFull() {
 		char[][] board = { {'o', 'o', 'x'}, {'x', 'x', 'o'}, {'o', 'x', 'x'} };
-		assertEquals(true, Board.checkIfTie(board));
+		assertEquals(true, Board.checkIfFull(board));
 	}
 }
