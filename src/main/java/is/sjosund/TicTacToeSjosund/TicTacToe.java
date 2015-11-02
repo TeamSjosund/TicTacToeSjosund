@@ -34,8 +34,17 @@ public class TicTacToe {
         winner = board.winner(board.BOARD);
     }
     board.printBoard();
-    System.out.println("Winner: " + winner);
+   
+    if(winner == '-')
+    {
+        System.out.println("Tie!");
+    }
+    else
+    {
+        System.out.println("Winner: " + winner);
+    }
+}
 }
 
     
-}
+
