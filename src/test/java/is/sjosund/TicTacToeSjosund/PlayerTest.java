@@ -29,4 +29,22 @@ public class PlayerTest
         assertFalse(Player.verifyInput(-1));   
     }
 
+    @Test
+    public void convertInput()
+    {
+        assertEquals(4 ,Player.convertInput("4"));   
+    }
+
+    @Test
+    public void convertStringInput()
+    {
+        assertEquals(Player.convertInput("Hello"), -1);   
+    }
+
+    @Test
+    public void convertCharInput()
+    {
+        assertEquals(Player.convertInput("a"), -1);   
+    }
+
 }

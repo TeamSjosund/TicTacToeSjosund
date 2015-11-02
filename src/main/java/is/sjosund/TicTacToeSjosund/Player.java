@@ -16,7 +16,8 @@ public class Player {
         do {
             System.out.println("Enter row");
             Scanner sc = new Scanner(System.in);
-            x = sc.nextInt();
+            String xs = sc.nextLine();
+            x = convertInput(xs);
         } while (verifyInput(x) == false);
 
         return x;
@@ -27,7 +28,8 @@ public class Player {
         do {
             System.out.println("Enter column");
             Scanner sc = new Scanner(System.in);
-            y = sc.nextInt();
+            String ys = sc.nextLine();
+            y = convertInput(ys);
         } while (verifyInput(y) == false);
 
         return y;
@@ -42,6 +44,17 @@ public class Player {
          }
         return true;
         
+    }
+
+    public static int convertInput (String s) {
+        int number;
+        try {
+            number = Integer.parseInt(s);
+        }
+        catch (NumberFormatException ex) {
+            number = -1;
+        }
+        return number;
     }
     
     /*public Point computerMove()
