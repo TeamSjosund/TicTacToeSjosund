@@ -12,9 +12,7 @@ public class PlayerTest
     @Test
     public void verifyGoodInput()
     {
-
-        assertTrue(Player.verifyInput(2));
-        
+        assertTrue(Player.verifyInput(2));       
     }
         
     @Test

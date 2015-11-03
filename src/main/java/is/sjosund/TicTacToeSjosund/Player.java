@@ -10,21 +10,13 @@ public class Player {
     {
         this.c = c;
     }
-    public int humanXMove()
+    public int humanMove()
     {
         int x;
         Scanner sc = new Scanner(System.in);
         String xs = sc.nextLine();
         x = convertInput(xs);
         return x;
-    }
-    public int humanYMove()
-    {
-        int y;
-            Scanner sc = new Scanner(System.in);
-            String ys = sc.nextLine();
-            y = convertInput(ys);
-        return y;
     }
     
     public static boolean verifyInput(int input)

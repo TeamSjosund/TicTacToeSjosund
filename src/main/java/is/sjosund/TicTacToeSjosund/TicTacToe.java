@@ -2,96 +2,88 @@ package is.sjosund.TicTacToeSjosund;
 
 public class TicTacToe {
     public static void main(String[] args) {
-	Board board = new Board(3);
-    Player player1 = new Player('x');
-    Player player2 = new Player('o');
-    char winner = '-';
-    boolean player1Turn = true;
-    while (!board.checkIfFull(board.BOARD) && winner == '-') {
-        board.printBoard();
-        if (player1Turn == true)
-        {
-        	System.out.println("Player 1 turn");
-        	int p1x;
-        	int p1y;
-        	boolean move;
-        	boolean goodInput;
-        	do {
-        		do {
-        			System.out.println("Enter row");
-		            p1x = player1.humanXMove();
-		            goodInput = player1.verifyInput(p1x);
-		            if (goodInput == false)
+		Board board = new Board(3);
+	    Player player1 = new Player('x');
+	    Player player2 = new Player('o');
+	    char winner = '-';
+	    boolean player1Turn = true;
+	    while (!board.checkIfFull(board.BOARD) && winner == '-') {
+	        printBoard(board.BOARD);
+	        if (player1Turn == true)
+	        {
+	        	turn(player1, board);
+	            player1Turn = false;
+	        }
+	        else
+	        {
+	        	turn(player2, board);
+	            player1Turn = true;
+	        }
+	        winner = board.winner(board.BOARD);
+	    }
+	    printBoard(board.BOARD);
+	   
+	    if(winner == '-')
+	    {
+	        System.out.println("Tie!");
+	    }
+	    else
+	    {
+	        System.out.println("Winner: " + winner);
+	    }
+	}
+
+	public static void printBoard (char[][] board) {
+		System.out.print("  ");
+    	for (int i = 0; i < board.length; i++)
+    	{
+    		System.out.print(i + " ");
+    	}
+    	System.out.println();
+    	for (int i = 0; i < board.length; i++)
+    	{
+    		System.out.print(i + " ");
+    		for (int j = 0; j < board.length; j++)
+    		{
+    			System.out.print(board[i][j] + " ");
+    		}
+    		System.out.println();
+    	}
+	}
+
+	public static void turn (Player p, Board board) {
+		System.out.println(p.playerChar() +  " turn");
+	        	int px;
+	        	int py;
+	        	boolean move;
+	        	boolean goodInput;
+	        	do {
+	        		do {
+	        			System.out.println("Enter row");
+			            px = p.humanMove();
+			            goodInput = p.verifyInput(px);
+			            if (goodInput == false)
+			            {
+			            	System.out.println("Invalid input! Try again: ");
+			            }
+			        } while (goodInput == false);
+			        do {
+			        	System.out.println("Enter column");
+			            py = p.humanMove();
+			            goodInput = p.verifyInput(py);
+			            if (goodInput == false)
+			            {
+			            	System.out.println("Invalid input! Try again: ");
+			            }
+			        } while (goodInput == false);
+		            move = board.checkBoard(px, py, board.BOARD);
+		            if (move == false)
 		            {
-		            	System.out.println("Invalid input! Try again: ");
+		            	System.out.println("Field occupied! Try again: ");
 		            }
-		        } while (goodInput == false);
-		        do {
-		        	System.out.println("Enter column");
-		            p1y = player1.humanXMove();
-		            goodInput = player1.verifyInput(p1y);
-		            if (goodInput == false)
-		            {
-		            	System.out.println("Invalid input! Try again: ");
-		            }
-		        } while (goodInput == false);
-	            move = board.checkBoard(p1x, p1y, board.BOARD);
-	            if (move == false)
-	            {
-	            	System.out.println("Field occupied! Try again: ");
-	            }
-            } while (move == false);
-            board.makeMove(p1x, p1y, board.BOARD, player1.playerChar());
-            player1Turn = false;
-        }
-        else
-        {
-        	System.out.println("Player 2 turn");
-        	int p2x;
-        	int p2y;
-        	boolean move;
-        	boolean goodInput;
-        	do {
-	            do {
-	            	System.out.println("Enter row");
-		            p2x = player1.humanXMove();
-		            goodInput = player1.verifyInput(p2x);
-		            if (goodInput == false)
-		            {
-		            	System.out.println("Invalid input! Try again: ");
-		            }
-		        } while (goodInput == false);
-		        do {
-		        	System.out.println("Enter column");
-		            p2y = player1.humanXMove();
-		            goodInput = player1.verifyInput(p2y);
-		            if (goodInput == false)
-		            {
-		            	System.out.println("Invalid input! Try again: ");
-		            }
-		        } while (goodInput == false);
-	            move = board.checkBoard(p2x, p2y, board.BOARD);
-	            if (move == false)
-	            {
-	            	System.out.println("Field occupied! Try again: ");
-	            }
-	        } while (move == false);
-            board.makeMove(p2x, p2y, board.BOARD, player2.playerChar());
-            player1Turn = true;
-        }
-        winner = board.winner(board.BOARD);
-    }
-    board.printBoard();
-   
-    if(winner == '-')
-    {
-        System.out.println("Tie!");
-    }
-    else
-    {
-        System.out.println("Winner: " + winner);
-    }
-}
+	            } while (move == false);
+	            board.makeMove(px, py, board.BOARD, p.playerChar());
+	}
 }
 
     

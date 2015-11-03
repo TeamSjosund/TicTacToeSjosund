@@ -4,7 +4,7 @@ package is.sjosund.TicTacToeSjosund;
 public class Board {
     public static void main(String[] args) {
     }
-	
+
 	static int SIZE = 3;
 	static char[][] BOARD;
 	
@@ -114,23 +114,9 @@ public class Board {
 		return true;
 	}
 
-	public static void printBoard ()
-    {
-    	System.out.print(" ");
-    	for (int i = 0; i < BOARD.length; i++)
-    	{
-    		System.out.print(i + " ");
-    	}
-    	System.out.println();
-    	for (int i = 0; i < BOARD.length; i++)
-    	{
-    		System.out.print(i + " ");
-    		for (int j = 0; j < BOARD.length; j++)
-    		{
-    			System.out.print(BOARD[i][j] + " ");
-    		}
-    		System.out.println();
-    	}
-    }
+	public static char[][] getBoard()
+	{
+		return BOARD;
+	}
 }
 
