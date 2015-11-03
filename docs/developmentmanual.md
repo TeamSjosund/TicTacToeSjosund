@@ -14,6 +14,7 @@ What you need and how you get the project to build on your computer:
 * [GitHub](https://github.com/)
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Gradle](http://gradle.org/gradle-download/)
+* [Pandoc](http://pandoc.org/installing.html)
 * [Cmd, Terminal or any other shell]
 
 ***
