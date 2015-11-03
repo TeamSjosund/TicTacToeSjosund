@@ -1,6 +1,7 @@
 package is.sjosund.TicTacToeSjosund;
 
 public class TicTacToe {
+	// runs the game
     public static void main(String[] args) {
 		Board board = new Board(3);
 	    Player player1 = new Player('x');
@@ -33,6 +34,7 @@ public class TicTacToe {
 	    }
 	}
 
+	// prints the board to the console
 	public static void printBoard (char[][] board) {
 		System.out.print("  ");
     	for (int i = 0; i < board.length; i++)
@@ -51,6 +53,7 @@ public class TicTacToe {
     	}
 	}
 
+	// a player turn
 	public static void turn (Player p, Board board) {
 		System.out.println(p.playerChar() +  " turn");
 	        	int px;
