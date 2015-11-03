@@ -1,18 +1,20 @@
 set JAR="TicTacToeSjosund.jar"
+set TAR="TicTacToeSjosund.tar"
+set ZIP="TicTacToeSjosund.zip"
 set LOCATION="C:\temp"
 
-REM Always deploy new version, clean before
+REM Clean, build and deploy
 call bin\clean.bat
 call bin\build.bat
 call bin\package.bat
 
-REM If jar file exists under C:\temp, remove it
+REM remove the jar file if it exists
 if exist %LOCATION%%JAR% del /F %LOCATION%%JAR%
 
-REM If destionation folder doesn't exist, create it
+REM if destination folder doesnt exist, create it
 if not exist "%LOCATION%" mkdir %LOCATION%
 
 copy build\libs\%JAR% %LOCATION%
 
-REM Run application once
+REM Run application
 java -jar %LOCATION%\\%JAR%
