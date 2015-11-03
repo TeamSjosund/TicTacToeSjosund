@@ -3,7 +3,6 @@ package is.sjosund.TicTacToeSjosund;
 
 public class Board {
     public static void main(String[] args) {
-	System.out.println("Hello world");
     }
 	
 	static int SIZE = 3;
@@ -39,7 +38,6 @@ public class Board {
 		}
 		
 		if(board[x][y] != '-') {
-			System.out.println("Field occupied! Try again: ");
 			return false;
 		}
 		
