@@ -2,6 +2,7 @@
 
 if [ ! -d ~/tmp ]; then
 	mkdir ~/tmp/
+	mkdir ~/tmp/documentation
 fi
 
 JAR="TicTacToeSjosund.jar"
@@ -18,5 +19,6 @@ cp build/libs/${JAR} ~/tmp
 cp -a build/reports/. ~/tmp
 cp build/distributions/${TAR} ~/tmp
 cp build/distributions/${ZIP} ~/tmp
+cp -a docs/html/. ~/tmp/documentation
 
 java -jar ~/tmp/${JAR}
