@@ -7,14 +7,22 @@ REM Clean, build and deploy
 call bin\clean.bat
 call bin\build.bat
 call bin\package.bat
+call bin\unit_test.bat
 
-REM remove the jar file if it exists
-if exist %LOCATION%%JAR% del /F %LOCATION%%JAR%
+REM If directory exists, remove it
+if exist %LOCATION% del /F %LOCATION%
 
-REM if destination folder doesnt exist, create it
+REM If destionation folder doesn't exist, create it
 if not exist "%LOCATION%" mkdir %LOCATION%
 
-copy build\libs\%JAR% %LOCATION%
 
-REM Run application
+REM Copy the packaged files/report to directory outside working directory.
+copy build\libs\%JAR% %LOCATION%
+copy build\distributions\%TAR% %LOCATION%
+copy build\distributions\%ZIP% %LOCATION%
+xcopy build\reports %LOCATION% /s /e /y
+xcopy docs\htmls %LOCATION$% /s /e /y
+
+REM Run application once
 java -jar %LOCATION%\\%JAR%
+
