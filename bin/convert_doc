@@ -1,0 +1,7 @@
+if [ ! -d docs/html ]; then
+	mkdir docs/html/
+fi
+
+pandoc -f markdown -t html docs/developmentmanual.md > ~/tmp/docs
+pandoc -f markdown -t html docs/administrationmanual.md > ~/tmp/docs
+pandoc -f markdown -t html docs/designreport.md > ~/tmp/docs

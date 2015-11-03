@@ -7,6 +7,7 @@ REM Clean, build and deploy
 call bin\clean.bat
 call bin\build.bat
 call bin\package.bat
+call bin\convert_doc.bat
 call bin\unit_test.bat
 
 REM If directory exists, remove it
@@ -21,8 +22,7 @@ copy build\libs\%JAR% %LOCATION%
 copy build\distributions\%TAR% %LOCATION%
 copy build\distributions\%ZIP% %LOCATION%
 xcopy build\reports %LOCATION% /s /e /y
-xcopy docs\htmls %LOCATION$% /s /e /y
+xcopy docs\html %LOCATION$% /s /e /y
 
 REM Run application once
 java -jar %LOCATION%\\%JAR%
-

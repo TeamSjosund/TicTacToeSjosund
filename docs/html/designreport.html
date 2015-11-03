@@ -1,0 +1,29 @@
+<h1 id="introduction">Introduction</h1>
+<p>The purpose of this report is to describe how we are going to design TicTacToe. Our TicTacToe system has three classes, one for the Player, one for the Board and the last one is for the gameplay of the TicTacToe.</p>
+<h2 id="player-class">Player class</h2>
+<ul>
+<li>This class reads the input from the user and verifies the input. The initializer keeps track of if the player is 'X' or 'O'.</li>
+<li>The functions humanXMove and humanYMove takes the input from the user and check if that square that the player wants to insert either 'X' or 'O' is valid for insertion and check if the input is valid.</li>
+<li>The verifyInput class goes without saying, it verifies the input from the user and if the input is invalid the user can try again.</li>
+</ul>
+<h2 id="board-class">Board class</h2>
+<ul>
+<li>This class creates and prints the board for the players to play in.</li>
+<li>The initializer calls the makeBoard function that simply creates the 3x3 board.</li>
+<li>In this class we have functions that checks if the field that the player wants to insert in is available and also checks whether we have a winner or a tie</li>
+<li>We also check if the input is out of bounds.</li>
+</ul>
+<h2 id="tictactoe-class">TicTacToe class</h2>
+<ul>
+<li>This class creates new board and two new players. Player 1 gets the 'X' and player 2 gets the 'O'.</li>
+<li>In this class we handles the gameplay and talks to the other classes. Here we check which player has the next move and if we have a winner and in the end the winner (or the tie) is announced.</li>
+</ul>
+<h2 id="coding-rules">Coding rules</h2>
+<ul>
+<li><p>One statement or declaration per line.</p></li>
+<li><p>We used PMD to analyze the code.</p></li>
+<li><p>Use curly braces around blocks, even when they would be optional (no one liners).</p></li>
+<li><p>Class names are PascalCased.</p></li>
+<li><p>local variables and parameters are camelCased.</p></li>
+<li><p>Functions are camelCased if and only if they are not class constructors then they are PascalCased.</p></li>
+</ul>
