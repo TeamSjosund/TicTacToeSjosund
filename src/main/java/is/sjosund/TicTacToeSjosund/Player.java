@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Player {
     private char c;
     
+    // Creates new player with char c as a board mark
     public Player(char c)
     {
         this.c = c;
@@ -19,6 +20,7 @@ public class Player {
         return x;
     }
     
+    // Returns true if and only if input is inside board boundries
     public static boolean verifyInput(int input)
     {
          if(input < 0 || input > 2)
@@ -29,6 +31,7 @@ public class Player {
         
     }
 
+    // Returns string s as an integer but throws exception if it's not an integer
     public static int convertInput (String s) {
         int number;
         try {
@@ -39,17 +42,8 @@ public class Player {
         }
         return number;
     }
-    
-    /*public Point computerMove()
-    {
-        int random1 = Random.nextInt(3);
-        int random2 = Random.nextInt(3);
-        
-        Point P = new Point(random1, random2);
-        
-        return p;
-    }*/
 
+    // Returns the board mark that the player has
     public char playerChar()
     {
         return c;

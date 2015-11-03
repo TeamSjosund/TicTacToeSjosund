@@ -8,11 +8,13 @@ public class Board {
 	static int SIZE = 3;
 	static char[][] BOARD;
 	
+	// initializes new Board of size size
 	Board(int size) {
 		SIZE = size;
 		BOARD = makeBoard(size);	
 	}
 	
+	// returns a char array of size size with '-' in all slots
     public static char[][] makeBoard (int size) {
     	if (size <= 2)
     	{
@@ -31,6 +33,7 @@ public class Board {
     	return board;
     }
 	
+	// returns true if (x,y) on board is not occupied
 	public static boolean checkBoard(int x, int y, char[][] board) {
 		
 		if(x >= board.length || x < 0 || y >= board.length || y < 0 ) {
@@ -44,6 +47,7 @@ public class Board {
 		return true;
 	}
 	
+	// occupies board (x,y)
 	public static char[][] makeMove (int x, int y, char[][] board, char playerChar)
     {
     	if (x >= board.length || x < 0 || y >= board.length || y < 0)
@@ -58,6 +62,7 @@ public class Board {
     	return board;
     }
 	
+	// returns the winners char if there is a winner, returns '-' otherwise
 	public static char winner(char[][] board) {
 		for(int i = 0; i < SIZE; i++) {
 			char currentChar = board[i][0];
@@ -103,6 +108,7 @@ public class Board {
 		return '-';
 	}
 	
+	// returns true if board is full
 	public static boolean checkIfFull(char[][] board) {
 		for(int i = 0; i < SIZE; i++) {
 			for(int j = 0; j < SIZE; j++) {
@@ -112,11 +118,6 @@ public class Board {
 			}
 		}
 		return true;
-	}
-
-	public static char[][] getBoard()
-	{
-		return BOARD;
 	}
 }
 
