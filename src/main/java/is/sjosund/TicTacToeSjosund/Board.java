@@ -72,7 +72,7 @@ public class Board {
 					winner = false;
 				}
 			}
-			if (winner == true) {
+			if (winner == true && currentChar != '-') {
 				return currentChar;
 			}
 		}
@@ -85,7 +85,7 @@ public class Board {
 					winner = false;
 				}
 			}
-			if (winner == true) {
+			if (winner == true && currentChar != '-') {
 				return currentChar;
 			}
 		}
@@ -97,7 +97,7 @@ public class Board {
 				winner = false;
 			}
 		}
-		if(winner == true) {
+		if(winner == true && currentChar != '-') {
 			return currentChar;
 		}
 		

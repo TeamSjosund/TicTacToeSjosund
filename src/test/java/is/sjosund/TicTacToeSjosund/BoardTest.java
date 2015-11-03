@@ -109,4 +109,28 @@ public class BoardTest {
 		char[][] board = { {'o', 'o', 'x'}, {'x', 'x', 'o'}, {'o', 'x', 'x'} };
 		assertEquals(true, Board.checkIfFull(board));
 	}
+
+	@Test
+	public void testVerticalWinner2() {
+		char[][] board = { {'-', 'x', '-'}, {'-', 'x', '-'}, {'-', 'x', '-'} };
+		assertEquals('x', Board.winner(board));
+	}
+
+	@Test
+	public void testVerticalWinner3() {
+		char[][] board = { {'-', '-', 'x'}, {'-', '-', 'x'}, {'-', '-', 'x'} };
+		assertEquals('x', Board.winner(board));
+	}
+
+	@Test
+	public void testHorixontalWinner2() {
+		char[][] board = { {'-', '-', '-'}, {'x', 'x', 'x'}, {'-', '-', '-'} };
+		assertEquals('x', Board.winner(board));
+	}
+
+	@Test
+	public void testHorixontalWinner3() {
+		char[][] board = { {'-', '-', '-'}, {'-', '-', '-'}, {'x', 'x', 'x'} };
+		assertEquals('x', Board.winner(board));
+	}
 }
